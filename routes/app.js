@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 			return res.send('Error!');
 
 		}
-		res.render('userRegi', {email: doc.email});
+		res.render('index');
 	});
 });
 
