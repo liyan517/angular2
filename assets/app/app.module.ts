@@ -13,7 +13,11 @@ import { AuthenticationComponent } from "./auth/authentication.component";
 import { LogoutComponent } from "./auth/logout.component";
 import { SignupComponent } from "./auth/signup.component";
 import { SigninComponent } from "./auth/signin.component";
+import { ClassesComponent } from "./classes/classes.component";
+
 import { AuthService } from "./auth/auth.service";
+import { ClassService } from "./classes/class.service";
+
 
 
 @NgModule({
@@ -26,7 +30,8 @@ import { AuthService } from "./auth/auth.service";
 	    AuthenticationComponent,
         LogoutComponent,
         SignupComponent,
-        SigninComponent
+        SigninComponent,
+        ClassesComponent
 
     ],
     imports: [
@@ -37,7 +42,7 @@ import { AuthService } from "./auth/auth.service";
     	ReactiveFormsModule
 
     	],
-    providers: [AuthService],
+    providers: [AuthService, ClassService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
