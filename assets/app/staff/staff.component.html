@@ -21,22 +21,26 @@
 
 
     <md-card>
-        <img [src]=staff.profilePicUrl class="md-card-image" alt="Washed Out">
+        <img [src]=staff.profilePicUrl class="md-card-image" alt="Washed Out" style="width: 261px; height: 261px">
         <md-card-title-group style="margin-top: 10px">
             <md-card-title>
                 {{staff.staffName}}
             </md-card-title>
             <md-card-subtitle>{{staff.jobTitle}}</md-card-subtitle>
         </md-card-title-group>
+        <hr>
         <md-card-content>
             <div style="white-space: pre-line">
-                {{staff.details}}
+                <p><strong>Year of Birth:</strong> {{staff.dateOfBirth}}</p>
+                <p><strong>Experience:</strong><br>
+                    {{staff.experience}}
+                </p>
             </div>
         </md-card-content>
 
         <md-card-actions>
             <button md-button>Like</button>
-            <button md-button>Share</button>
+            <button md-button (click)="goToStaffDetails()">Details</button>
 
         </md-card-actions>
         <p><a (click)="onEdit()" class="btn btn-default" role="button">Edit</a> <a (click)="onDelete()"

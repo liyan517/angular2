@@ -1,15 +1,18 @@
 import {Injectable, EventEmitter} from "@angular/core";
-import { Http, Headers, Response } from "@angular/http";
+import {Http, Headers, Response} from "@angular/http";
 import 'rxjs/Rx';
-import { Observable } from "rxjs";
+import {Observable} from "rxjs";
 
-import { Staff } from "./staff.model";
+import {Staff} from "./staff.model";
 
 @Injectable()
 export class StaffService {
     staffIsEdit = new EventEmitter<Staff>();
-    constructor(private http: Http) {}
-    staffs : Staff[] = [];
+
+    constructor(private http: Http) {
+    }
+
+    staffs: Staff[] = [];
     isEditDone = new EventEmitter<boolean>();
 
 
@@ -41,7 +44,7 @@ export class StaffService {
             .map((response: Response) => {
                 const staffObjs = response.json().obj;
                 let transformedClasses: Staff[] = [];
-                for (let staff of staffObjs){
+                for (let staff of staffObjs) {
                     console.log("get staff id: " + staff._id);
                     transformedClasses.push(new Staff(staff.staffName, staff.jobTitle, staff.classIds, staff.profilePicUrl,
                         staff.dateOfBirth, staff.country, staff.degree, staff.experience, staff.details, staff._id))
@@ -52,12 +55,32 @@ export class StaffService {
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
+    getStaffById(id: string) {
+        console.log("Get staff with id: " + id);
+        const body = JSON.stringify({id: id});
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/staff', body, {headers: headers})
+            .map((response: Response) => {
+                const staffObjs = response.json().obj;
+                let transformedClasses: Staff;
+
+                console.log("get staff ");
+                console.log(staffObjs);
+                transformedClasses = (new Staff(staffObjs.staffName, staffObjs.jobTitle, staffObjs.classIds, staffObjs.profilePicUrl,
+                    staffObjs.dateOfBirth, staffObjs.country, staffObjs.degree, staffObjs.experience, staffObjs.details, staffObjs._id));
+
+
+                return transformedClasses;
+            })
+            .catch((error: Response) => Observable.throw(error.json()));
+
+    }
 
     editStaff(staffObj: Staff) {
         this.staffIsEdit.emit(staffObj);
     }
 
-    updateStaff(staffObj: Staff){
+    updateStaff(staffObj: Staff) {
         const body = JSON.stringify(staffObj);
         const headers = new Headers({'Content-Type': 'application/json'});
         console.log(staffObj.staffId);
@@ -68,13 +91,13 @@ export class StaffService {
     }
 
 
-
-    finishEdit(){
-        console.log("Finish editing class" );
+    finishEdit() {
+        console.log("Finish editing class");
         this.isEditDone.emit(true);
         this.getAllStaffs();
     }
-    deleteStaff(classObj : Staff) {
+
+    deleteStaff(classObj: Staff) {
         console.log("delet class: " + classObj.staffName);
         this.staffs.splice(this.staffs.indexOf(classObj), 1);
         return this.http.delete('http://localhost:3000/staff/' + classObj.staffId)

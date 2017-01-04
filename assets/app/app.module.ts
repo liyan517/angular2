@@ -27,6 +27,7 @@ import {StaffComponent} from "./staff/staff.component";
 import {StaffService} from "./staff/staff.service";
 import {StaffInputComponent} from "./staff/staff-input.component";
 import { MaterialModule } from '@angular/material';
+import {StaffDetailsComponent} from "./staff/staff-details.component";
 
 
 
@@ -49,7 +50,8 @@ import { MaterialModule } from '@angular/material';
 		ViewerComponent,
 		StaffsComponent,
 		StaffComponent,
-		StaffInputComponent
+		StaffInputComponent,
+		StaffDetailsComponent
 
     ],
     imports: [

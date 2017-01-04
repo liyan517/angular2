@@ -39,6 +39,11 @@ export class StaffComponent implements OnInit{
             );
     }
 
+    goToStaffDetails(){
+        console.log("navigate to staff id " + this.staff.staffId);
+        this.router.navigate(['/staffs', this.staff.staffId]);
+    }
+
     /*TODO If currently is editing a class, set the class obj as the class being editing
      * need to call the editStaff method when you want to edit a class*/
     ngOnInit() {

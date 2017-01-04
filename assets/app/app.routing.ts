@@ -8,6 +8,7 @@ import {ClassInputComponent} from "./classes/class-input.component";
 import {GalleryComponent} from "./gallery/gallery.component";
 import {StaffsComponent} from "./staff/staffs.component";
 import {StaffInputComponent} from "./staff/staff-input.component";
+import {StaffDetailsComponent} from "./staff/staff-details.component";
 
 
 
@@ -20,7 +21,8 @@ const APP_ROUTES: Routes = [
 	{ path: 'addClass', component: ClassInputComponent },
 	{ path: 'gallery', component: GalleryComponent },
 	{ path: 'staffs', component: StaffsComponent },
-	{ path: 'addStaff', component: StaffInputComponent }
+	{ path: 'addStaff', component: StaffInputComponent },
+	{ path: 'staffs/:id', component: StaffDetailsComponent }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
