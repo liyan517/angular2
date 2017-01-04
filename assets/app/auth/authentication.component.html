@@ -1,0 +1,28 @@
+<div [hidden]=true>
+    <button #openSignIn type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#authModal">Open
+        Modal
+    </button>
+</div>
+<div id="authModal" class="modal fadeIn" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 0px">
+                <button #closeSignIn type="button" class="close" data-dismiss="modal">&times;</button>
+                <header class="row spacing">
+                    <nav class="col-md-8 col-md-offset-2">
+                        <ul class="nav nav-tabs">
+                            <li routerLinkActive="active"><a [routerLink]="['signup']">Signup</a></li>
+                            <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signin']">Signin</a>
+                            </li>
+                            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['logout']">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+            <div class="row spacing modal-body">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

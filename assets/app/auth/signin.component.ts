@@ -11,8 +11,12 @@ import { AuthService } from "./auth.service";
 })
 export class SigninComponent {
     myForm: FormGroup;
+    message: string;
+    hideAlert: boolean;
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+        this.hideAlert = true;
+    }
 
     onSubmit() {
         const user = new User(this.myForm.value.email, this.myForm.value.password);
@@ -21,9 +25,14 @@ export class SigninComponent {
                 data => {
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('userId', data.userId);
+                    this.authService.doneSignInToCloseModal();
                     this.router.navigateByUrl('/');
                 },
-                error => console.error(error)
+                error => {
+                    console.error(error);
+                    this.hideAlert=false;
+                    this.message=error.error.message;
+                }
             );
         this.myForm.reset();
     }

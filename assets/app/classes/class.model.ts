@@ -3,6 +3,7 @@ export class Class {
                 public category: string,
                 public fee: number,
                 public description?: string,
-                public time?: string
-                ) {}
+                public time?: string,
+                public classId?: string) {
+    }
 }

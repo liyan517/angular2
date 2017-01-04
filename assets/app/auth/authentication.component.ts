@@ -1,27 +1,40 @@
-import { Component } from "@angular/core";
-import { AuthService } from "./auth.service";
+import {Component, ViewChild, Renderer, OnInit, ElementRef} from "@angular/core";
+import {AuthService} from "./auth.service";
 
 @Component({
     selector: 'app-authentication',
-    template: `
-        <header class="row spacing">
-            <nav class="col-md-8 col-md-offset-2">
-                <ul class="nav nav-tabs">
-                    <li routerLinkActive="active"><a [routerLink]="['signup']">Signup</a></li>
-                    <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signin']">Signin</a></li>
-                    <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['logout']">Logout</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="row spacing">
-           <router-outlet></router-outlet>
-        </div>
-    `
+    templateUrl: './authentication.component.html'
 })
-export class AuthenticationComponent {
-    constructor(private authService: AuthService) {}
+export class AuthenticationComponent implements OnInit{
+    @ViewChild('openSignIn') triggerModal;
+    @ViewChild('closeSignIn') closeModal;
+
+    ngOnInit(): void {
+        this.triggerButton(this.triggerModal);
+        this.authService.doneSignIn.subscribe(
+            (isDone: boolean) => {
+                if (isDone){
+                    console.log("close modal");
+                    this.triggerButton(this.closeModal);
+                }
+            }
+        );
+    }
+
+    constructor(private authService: AuthService, private renderer : Renderer) {
+
+    }
 
     isLoggedIn() {
         return this.authService.isLoggedIn();
     }
+
+    triggerButton(button : ElementRef){
+        let event = new MouseEvent('click', {bubbles: true});
+        console.log(button);
+        this.renderer.invokeElementMethod(
+            this.triggerModal.nativeElement, 'dispatchEvent', [event]);
+    }
+
+
 }

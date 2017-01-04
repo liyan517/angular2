@@ -4,6 +4,34 @@
 	margin-left: 20%;*/
 }
 
+#welcomeDiv{
+    background-image: -webkit-linear-gradient(92deg,rgba(243,86,38,0.1),rgba(254,171,58,0.1));
+    -webkit-background-clip: content-box;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
+
+.welcomeLine{
+    font-family: "Bodoni MT Black";
+    font-size: 4rem;
+    text-shadow: 10px 10px 8px rgba(149,232,245,0.5);
+    line-height: 1.4;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
 #myCarousel{
 	box-shadow: 5px 2px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
     width: 96%;

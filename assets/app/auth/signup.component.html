@@ -1,4 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
+    <div class="alert alert-danger" [hidden]="isHideFailed">{{message}}</div>
+    <div class="alert alert-success" [hidden]="isHideSuccess">{{message}}</div>
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="firstName">First Name</label>

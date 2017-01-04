@@ -1,0 +1,21 @@
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <!--  <img src="..." alt="..."> -->
+        <div class="caption">
+            <h3>{{class.className}}</h3>
+            <br/>
+            <p>{{class.description}}</p>
+            <br/>
+            <hr/>
+            <br/>
+
+            <table>
+                <tr><td>Time:</td><td>{{class.time}}</td></tr>
+                <tr><td>Price:</td><td>{{class.fee}}</td></tr>
+            </table>
+            <p><a (click)="onEdit()" class="btn btn-default" role="button" >Edit</a> <a (click)="onDelete()" class="btn btn-default" role="button">Delete</a></p>
+        </div>
+    </div>
+
+    <app-class-input [hidden]="isHideInput" [class]="class"></app-class-input>
+</div>

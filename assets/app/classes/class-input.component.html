@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="alert alert-danger col-md-6 col-md-offset-3" role="alert" [hidden]="isValid">{{message}}</div>
+    <div class="col-md-8 col-md-offset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select
+                        id="category"
+                        class="form-control"
+                        [ngModel]="class?.category"
+                        name="category"
+                        required
+                >
+                    <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+                </select>
+                <!--            <input
+                                    type="text"
+                                    id="category"
+                                    class="form-control"
+                                    [ngModel]="class?.category"
+                                    name="category"
+                                    required>-->
+<!--                <div [hidden]="category.valid || category.pristine"
+                     class="alert alert-danger">
+                    category is required
+                </div>-->
+            </div>
+
+            <div class="form-group">
+                <label for="className">ClassName</label>
+                <input
+                        type="text"
+                        id="className"
+                        class="form-control"
+                        [ngModel]="class?.className"
+                        name="className"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="fee">Price</label>
+                <input
+                        type="double"
+                        id="fee"
+                        class="form-control"
+                        [ngModel]="class?.fee"
+                        name="fee"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input
+                        type="time"
+                        id="time"
+                        class="form-control"
+                        [ngModel]="class?.time"
+                        name="time"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                        type="text"
+                        id="description"
+                        class="form-control"
+                        [ngModel]="class?.description"
+                        name="description"
+                        required>
+            </div>
+
+            <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+</div>

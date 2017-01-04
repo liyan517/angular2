@@ -1,10 +1,12 @@
 import { Routes } from "@angular/router";
 
 import { ClassesComponent } from "./classes.component";
+import {ClassInputComponent} from "./class-input.component";
 
 export const CLASS_ROUTES: Routes = [
-    { path: '', redirectTo: 'signup', pathMatch: 'full' },
-    { path: 'children', component: ClassesComponent }, /*can we pass input from here?*/
-    { path: 'adult', component: ClassesComponent }
-    
+    { path: '', component: ClassesComponent, pathMatch: 'full', data:[{category: "all"}] },
+    { path: 'children', component: ClassesComponent, data:[{category: "children"}] }, /*can we pass input from here?*/
+    { path: 'adults', component: ClassesComponent, data:[{category: "adult"}] },
+    { path: 'addClass', component: ClassInputComponent }
+
 ];

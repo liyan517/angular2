@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {Component, OnInit} from "@angular/core";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 
-import { AuthService } from "./auth.service";
-import { User } from "./user.model";
+import {AuthService} from "./auth.service";
+import {User} from "./user.model";
 
 @Component({
     selector: 'app-signup',
@@ -10,8 +10,9 @@ import { User } from "./user.model";
 })
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
-
-    constructor(private authService: AuthService) {}
+    isHideFailed: boolean;
+    isHideSuccess: boolean;
+    message : string;
 
     onSubmit() {
         const user = new User(
@@ -22,10 +23,26 @@ export class SignupComponent implements OnInit {
         );
         this.authService.signup(user)
             .subscribe(
-                data => console.log(data),
-                error => console.error(error)
+                data => {
+                    console.log(data);
+                    this.isHideSuccess = false;
+                    this.isHideFailed = true;
+                    this.message = data.message + " Please login using your new account";
+                },
+
+                error => {
+                    console.error(error);
+                    this.isHideSuccess = true;
+                    this.isHideFailed = false;
+                    this.message = error.message + " Please check your information is correct";
+                }
             );
         this.myForm.reset();
+    }
+
+
+
+    constructor(private authService: AuthService) {
     }
 
     ngOnInit() {
@@ -38,5 +55,7 @@ export class SignupComponent implements OnInit {
             ]),
             password: new FormControl(null, Validators.required)
         });
+        this.isHideFailed = true;
+        this.isHideSuccess = true;
     }
 }

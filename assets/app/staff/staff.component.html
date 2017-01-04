@@ -1,0 +1,63 @@
+<div class="col-sm-6 col-md-4">
+    <!--
+        <div class="thumbnail">
+            <img [src]=staff.profilePicUrl alt="teacher{{staff.staffName}}">
+            <div class="caption">
+                <h3>{{staff.staffName}}</h3>
+                <br/>
+                <p>{{staff.jobTitle}}</p>
+                <br/>
+                <hr/>
+                <br/>
+
+                <table>
+                    <tr><td>Country:</td><td>{{staff.country}}</td></tr>
+                    <tr><td>Year of Birth:</td><td>{{staff.dateOfBirth}}</td></tr>
+                </table>
+                <p><a (click)="onEdit()" class="btn btn-default" role="button" >Edit</a> <a (click)="onDelete()" class="btn btn-default" role="button">Delete</a></p>
+            </div>
+        </div>
+    -->
+
+
+    <md-card>
+        <img [src]=staff.profilePicUrl class="md-card-image" alt="Washed Out">
+        <md-card-title-group style="margin-top: 10px">
+            <md-card-title>
+                {{staff.staffName}}
+            </md-card-title>
+            <md-card-subtitle>{{staff.jobTitle}}</md-card-subtitle>
+        </md-card-title-group>
+        <md-card-content>
+            <div style="white-space: pre-line">
+                {{staff.details}}
+            </div>
+        </md-card-content>
+
+        <md-card-actions>
+            <button md-button>Like</button>
+            <button md-button>Share</button>
+
+        </md-card-actions>
+        <p><a (click)="onEdit()" class="btn btn-default" role="button">Edit</a> <a (click)="onDelete()"
+                                                                                   class="btn btn-default"
+                                                                                   role="button">Delete</a></p>
+
+        <!--        <button md-button layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                    </md-button>
+                </button>-->
+    </md-card>
+
+</div>
+
+<div id="staffEdit">
+    <app-staff-input [hidden]="isHideInput" [staff]="staff"></app-staff-input>
+</div>

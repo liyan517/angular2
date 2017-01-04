@@ -1,6 +1,8 @@
 .sliderItem img{
 	margin-left: auto;
 	margin-right: auto;
+    height: 800px;
+    width: auto;
 }
 
 #myCarousel{
