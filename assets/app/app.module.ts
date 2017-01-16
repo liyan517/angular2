@@ -28,6 +28,7 @@ import {StaffService} from "./staff/staff.service";
 import {StaffInputComponent} from "./staff/staff-input.component";
 import { MaterialModule } from '@angular/material';
 import {StaffDetailsComponent} from "./staff/staff-details.component";
+import {AboutStoreComponent} from "./about/about-store.component";
 
 
 
@@ -38,6 +39,7 @@ import {StaffDetailsComponent} from "./staff/staff-details.component";
 	    SliderComponent,
 	    HomeComponent,
 	    AboutComponent,
+		AboutStoreComponent,
 	    AuthenticationComponent,
         LogoutComponent,
         SignupComponent,

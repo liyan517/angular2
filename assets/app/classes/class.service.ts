@@ -39,7 +39,8 @@ export class ClassService {
                 let transformedClasses: Class[] = [];
                 for (let classObj of classObjs){
                     console.log("get class id: " + classObj._id);
-                    transformedClasses.push(new Class(classObj.className, classObj.category, classObj.fee, classObj.description, classObj.time, classObj._id))
+                    transformedClasses.push(new Class(classObj.className, classObj.category, classObj.fee,
+                    classObj.picURL, classObj.description, classObj.time, classObj._id))
                 }
                 this.classes = transformedClasses;
                 return transformedClasses;

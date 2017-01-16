@@ -20,14 +20,14 @@
     -->
 
 
-    <md-card>
-        <img [src]=staff.profilePicUrl class="md-card-image" alt="Washed Out" style="width: 261px; height: 261px">
-        <md-card-title-group style="margin-top: 10px">
-            <md-card-title>
-                {{staff.staffName}}
-            </md-card-title>
-            <md-card-subtitle>{{staff.jobTitle}}</md-card-subtitle>
-        </md-card-title-group>
+    <md-card style="border-radius: 50px">
+        <img [src]=staff.profilePicUrl class="md-card-image" alt="Washed Out" style="width: 261px; height: 261px; display: block; margin: auto">
+        <div class="caption">
+            <h2>{{staff.staffName}}</h2>
+            <h4>{{staff.jobTitle}}</h4>
+        </div>
+        <button class="iconButton btn btn-default"><span class="glyphicon glyphicon-heart" style="font-size: 20px; "></span></button>
+        <button class="iconButton btn btn-default" (click)="goToStaffDetails()"><span class="glyphicon glyphicon-eye-open" style="font-size: 20px;"></span></button>
         <hr>
         <md-card-content>
             <div style="white-space: pre-line">
@@ -38,11 +38,11 @@
             </div>
         </md-card-content>
 
-        <md-card-actions>
+<!--        <md-card-actions>
             <button md-button>Like</button>
             <button md-button (click)="goToStaffDetails()">Details</button>
 
-        </md-card-actions>
+        </md-card-actions>-->
         <p><a (click)="onEdit()" class="btn btn-default" role="button">Edit</a> <a (click)="onDelete()"
                                                                                    class="btn btn-default"
                                                                                    role="button">Delete</a></p>

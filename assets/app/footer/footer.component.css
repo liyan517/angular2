@@ -1,0 +1,68 @@
+.footerRow{
+    color: white;
+    margin-left: 25%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+
+
+#appFooter{
+    background-color: rgba(0, 0, 139, 0.5);  /* #dc6624 */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    box-shadow: 0px -5px 10px lightgray;
+}
+
+.social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.social {
+    -webkit-transform: scale(0.8);
+    /* Browser Variations: */
+
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+/*
+    Multicoloured Hover Variations
+*/
+
+#social-fb:hover {
+    color: #80d6e7;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #d3a29d;
+}
+#social-em:hover {
+    color: #f3e49d;
+}
+
+.fa{
+    color: lightcyan;
+}
+
+/*
+#social-fb{
+    color: #3B5998;
+}
+#social-tw{
+    color: #4099FF;
+}
+#social-gp{
+    color: #d34836;
+}
+#social-em {
+    color: #f39c12;
+}*/

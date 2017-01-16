@@ -1,20 +1,46 @@
-<div id="appFooter">
+<div id="appFooter" >
     <footer>
         <div class="footerRow container">
             <div class="col-md-4">
                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                <p>Vist</p>
-                <p>My address</p>
+                <p><strong>Vist</strong> </p>
+                <address>Blk 3016 Bedok North Ave4 #02-12
+                    <br>Eastech Singapore 489947
+                    <br>Main Office
+                </address>
+                <address>91 Bencoolen Street #01-72
+                    <br>Sunshine Plaza S189652
+                    <br>Bugis Store
+                </address>
+                <address>3 Simei Street 6, #02-28
+                    <br>Eastpoint Mall S528833
+                    <br>Simei Store
+                </address>
             </div>
             <div class="col-md-4">
                 <span class="glyphicon glyphicon-phone-alt"></span>
-                <p>Call</p>
+                <p><strong>Call</strong></p>
                 <p>+(65)8171-6671</p>
+
+                <div style="margin-top: 10px">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <p><strong>Email</strong></p>
+                    <p>abcd@gmail.com</p>
+
+                    <div class="">
+                        <p><strong>Follow us: </strong></p>
+                        <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                        <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                        <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                        <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
-                <span class="glyphicon glyphicon-envelope"></span>
-                <p>Email</p>
-                <p>abcd@gmail.com</p>
+                <span class="glyphicon glyphicon-link"></span>
+                <p><strong>Quick Link:</strong></p>
+                <a [routerLink]="['/about']">About us</a><br>
+                <a [routerLink]="['/staffs']">Our staffs</a><br>
             </div>
         </div>
 

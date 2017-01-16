@@ -33,6 +33,7 @@ export class ClassInputComponent implements OnInit {
     /*    constructor(public className: string,
      public category: string,
      public fee: number,
+      public picURL?: string,
      public description?: string,
      public time?: string,
      public classId?: string) */
@@ -42,6 +43,8 @@ export class ClassInputComponent implements OnInit {
             this.class.category = form.value.category;
             this.class.className = form.value.className;
             this.class.fee = form.value.fee;
+            this.class.picURL = form.value.picURL;
+
             this.class.time = form.value.time;
             this.class.description = form.value.description;
             console.log(this.class);
@@ -60,6 +63,7 @@ export class ClassInputComponent implements OnInit {
                 form.value.className,
                 form.value.category,
                 form.value.fee,
+                form.value.picURL,
                 form.value.description,
                 form.value.time
             );
