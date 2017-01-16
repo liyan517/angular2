@@ -13,6 +13,7 @@ router.post('/addClass', function (req, res, next) {
         className: req.body.className,
         category: req.body.category,
         fee: req.body.fee,
+        picURL: req.body.picURL,
         description: req.body.description,
         //TODO add time
         time: "Wed 12pm"
@@ -22,7 +23,7 @@ router.post('/addClass', function (req, res, next) {
     fee: {type: Number, required: true},
     description: {type: String},
     time: {type: String, required: true}*/
-console.log(classObj);
+    console.log(classObj);
     classObj.save(function(err, result) {
         if (err) {
 
@@ -39,27 +40,43 @@ console.log(classObj);
     });
 });
 
+
+function getClassCallBack(err, classObj, res){
+    if (err) {
+        return res.status(500).json({
+            title: 'An error occurred when getting classes',
+            error: err.message
+        });
+    }
+    if (!classObj) {
+        return res.status(401).json({
+            title: 'empty classObj',
+            error: {message: 'empty classObj when getting classes'}
+        });
+    }
+    console.log(classObj);
+    res.status(200).json({
+        message: 'Success',
+        obj: classObj
+    })
+
+};
+
 router.post('/', function(req, res, next) {
-    console.log("get classes for cat: " + req.body.category);
-    ClassObj.find({category: req.body.category})
-        .exec(function(err, classObj) {
-        if (err) {
-            return res.status(500).json({
-                title: 'An error occurred when getting classes',
-                error: err.message
+    var category = req.body.category;
+    console.log("get classes for cat: " + category);
+    if(category == "all"){
+        console.log("get all classes");
+        ClassObj.find()
+            .exec(function(err, classObj) {
+                getClassCallBack(err, classObj, res);
+
             });
-        }
-        if (!classObj) {
-            return res.status(401).json({
-                title: 'empty classObj',
-                error: {message: 'empty classObj when getting classes'}
-            });
-        }
-        console.log(classObj);
-        res.status(200).json({
-            message: 'Success',
-            obj: classObj
-        })
+    }
+    else
+        ClassObj.find({category: category})
+    .exec(function(err, classObj) {
+        getClassCallBack(err, classObj, res);
 
     });
 });
@@ -85,6 +102,7 @@ router.patch('/:id', function (req, res, next) {
         classObj.category = req.body.category;
         classObj.className = req.body.className;
         classObj.description = req.body.description;
+        classObj.picURL = req.body.picURL;
         classObj.fee = req.body.fee;
         classObj.time = req.body.time;
 

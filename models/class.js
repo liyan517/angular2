@@ -6,6 +6,7 @@ var schema = new Schema({
 	className: {type: String, required: true},
 	category: {type: String, required: true, unique: true},
 	fee: {type: Number, required: true},
+	picURL: {type: String, required: true},
 	description: {type: String},
 	time: {type: String, required: true}
 });

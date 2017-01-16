@@ -77,6 +77,33 @@ router.get('/', function (req, res, next) {
         });
 });
 
+router.post('/', function (req, res, next) {
+    console.log("get staff with id: " + req.body);
+
+    Staff.findById(req.body.id, function (err, staffObj) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred when looking for the staff from the database',
+                error: err
+            });
+        }
+        if (!staffObj) {
+            return res.status(500).json({
+                title: 'No Staff Found!',
+                error: {message: 'Staff not found'}
+            });
+        }
+        console.log("found staff: " + staffObj);
+        res.status(200).json({
+            message: 'Success',
+            obj: staffObj
+        });
+
+    });
+
+
+});
+
 
 router.patch('/:id', function (req, res, next) {
     var oID = new ObjectId(req.params.id);
@@ -97,14 +124,14 @@ router.patch('/:id', function (req, res, next) {
         }
 
         staffObj.staffName = req.body.staffName;
-            staffObj.jobTitle = req.body.jobTitle;
-            staffObj.classId = req.body.classId;
-            staffObj.profilePicUrl = req.body.profilePicUrl;
-            staffObj.dateOfBirth = req.body.dateOfBirth;
-            staffObj.country = req.body.country;
-            staffObj.degree = req.body.degree;
-            staffObj.experience = req.body.experience;
-            staffObj.details = req.body.details
+        staffObj.jobTitle = req.body.jobTitle;
+        staffObj.classId = req.body.classId;
+        staffObj.profilePicUrl = req.body.profilePicUrl;
+        staffObj.dateOfBirth = req.body.dateOfBirth;
+        staffObj.country = req.body.country;
+        staffObj.degree = req.body.degree;
+        staffObj.experience = req.body.experience;
+        staffObj.details = req.body.details
 
 
         staffObj.save(function (err, result) {
