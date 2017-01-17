@@ -6,7 +6,8 @@ import { Router} from "@angular/router";
 
 @Component({
     selector: 'app-class',
-    templateUrl: './class.component.html'
+    templateUrl: './class.component.html',
+    styleUrls: ['./class.component.css']
 
 })
 

@@ -12,21 +12,34 @@
         <div class="carousel-inner" role="listbox">
 
             <div *ngFor="let imgItem of sliderImage"
-                 [ngClass]="{'item': true, 'sliderItem': true ,'active': setActiveSlider(imgItem)}">
-                <img [src]="imgItem.src">
+            [ngClass]="{'item': true, 'sliderItem': true ,'active': setActiveSlider(imgItem)}">
+            <img [src]="imgItem.src">
+            <div *ngIf="imgItem.caption != null">
+            <div class="carousel-caption" style="top: 20%">
+                <h3 class="animated bounceInLeft">
+                  Welcome to Umistrong Art Studio
+and Art Store
+                </h3>
+                <h4 class="animated bounceInRight">
+                  In our Art Store, You can find various art materials <br>
+                  In our Art Studio, You can find  customized and experimental art programs for all age groups. 
 
+                </h4>
+              
             </div>
+            </div>
+      </div>
 
-        </div>
+  </div>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
 </div>

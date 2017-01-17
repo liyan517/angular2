@@ -23,6 +23,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {GalleryComponent} from "./gallery/gallery.component";
 import {ViewerComponent} from "./gallery/viewer.component";
 import {StaffsComponent} from "./staff/staffs.component";
+import {StaffsSnapComponent} from "./staff/staffs-snap.component ";
 import {StaffComponent} from "./staff/staff.component";
 import {StaffService} from "./staff/staff.service";
 import {StaffInputComponent} from "./staff/staff-input.component";
@@ -53,7 +54,8 @@ import {AboutStoreComponent} from "./about/about-store.component";
 		StaffsComponent,
 		StaffComponent,
 		StaffInputComponent,
-		StaffDetailsComponent
+		StaffDetailsComponent,
+		StaffsSnapComponent
 
     ],
     imports: [

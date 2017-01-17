@@ -1,0 +1,13 @@
+<div class="row" style="margin-top: 7%">
+    <div class="col-md-6" *ngFor="let staffObj of staffs">
+    <md-card >
+       <md-card-title-group>
+          <img md-card-sm-image [src]="staffObj.profilePicUrl" style="width: 150px; height: 150px">
+          <md-card-title>{{staffObj.staffName}}</md-card-title>
+          <md-card-subtitle>{{staffObj.experience}}</md-card-subtitle>
+       </md-card-title-group>
+    </md-card>
+  </div>
+
+
+</div>

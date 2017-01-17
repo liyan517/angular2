@@ -16,3 +16,21 @@
     margin-left: 2%;
     margin-top: 2%
 } 
+
+.carousel-caption>h3{
+    animation-delay: 1s;
+    font-size: 4rem;
+    background-color: rgba(0,0,0,0.5);
+    line-height: 3;
+}
+
+
+
+.carousel-caption>h4{
+    animation-delay: 2s;   
+    font-size: 2em;
+    line-height: 1.5;
+    margin-top: 5%;
+    text-shadow: 4px 4px 15px #000033;
+   /*  background-color: rgba(0,0,0,0.5); */
+}

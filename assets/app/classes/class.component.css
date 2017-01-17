@@ -1,0 +1,31 @@
+#viewClass{
+	transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 140px;
+    left: 190px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 200px;
+    padding-top: 30px;
+}
+
+:hover #viewClass{
+	opacity: 1;
+}
+
+:hover img{
+   opacity: 0.3;
+}
+
+img{
+	    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+a{
+	color: gray;
+}
